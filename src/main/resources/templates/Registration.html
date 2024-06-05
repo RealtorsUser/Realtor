@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration</title>
+</head>
+<body>
+<h2>Registration Form</h2>
+
+<form th:action="@{/submit_registration}" method="post" th:object="${realtorUser}">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+    <!-- form fields here -->
+    <label for="introducerName">Introducer Name:</label><br>
+    <input type="text" id="introducerName" th:field="*{introducerName}" required><br><br>
+
+    <label for="introducerID">Introducer ID:</label><br>
+    <input type="text" id="introducerID" th:field="*{introducerID}" required><br><br>
+
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" th:field="*{name}" required><br><br>
+
+    <label for="mobileNumber">Mobile Number:</label><br>
+    <input type="tel" id="mobileNumber" th:field="*{mobileNumber}" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" th:field="*{email}" required><br><br>
+
+    <label for="dob">Date of Birth:</label><br>
+    <input type="date" id="dob" th:field="*{dob}" required><br><br>
+
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" th:field="*{age}" required><br><br>
+
+    <label for="qualification">Qualification:</label><br>
+    <input type="text" id="qualification" th:field="*{qualification}" required><br><br>
+
+    <label for="experience">Experience in years:</label><br>
+    <input type="number" id="experience" th:field="*{experience}" required><br><br>
+
+    <label for="currentPosition">Current Position:</label><br>
+    <input type="text" id="currentPosition" th:field="*{currentPosition}" required><br><br>
+
+    <label for="address">Address:</label><br>
+    <textarea id="address" th:field="*{address}" rows="4" cols="50" required></textarea><br><br>
+
+    <label for="whatsappNumber">WhatsApp Number:</label><br>
+    <input type="tel" id="whatsappNumber" th:field="*{whatsappNumber}" required><br><br>
+
+    <label for="grade">Grade:</label><br>
+    <select id="grade" th:field="*{grade}" required>
+        <option value="Grade A">Grade A</option>
+        <option value="Grade B">Grade B</option>
+        <option value="Grade C">Grade C</option>
+    </select><br><br>
+
+    <label for="allotID">Allot ID Number:</label><br>
+    <input type="text" id="allotID" th:field="*{allotID}" required><br><br>
+
+    <label for="password">Create Password:</label><br>
+    <input type="password" id="password" th:field="*{password}" required><br><br>
+
+    <label for="confirmPassword">Confirm Password:</label><br>
+    <input type="password" id="confirmPassword" required><br><br>
+
+    <div th:if="${error}">
+        <p style="color:red" th:text="${error}"></p>
+    </div>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

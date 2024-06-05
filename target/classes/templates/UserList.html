@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User List</title>
+</head>
+<body>
+<h2>User List</h2>
+<form>th:action="@{/user_list}" method="get" th:object="${realtorUser}">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Introducer Name</th>
+        <th>Introducer ID</th>
+        <th>Name</th>
+        <th>Mobile Number</th>
+        <th>Email</th>
+        <th>DOB</th>
+        <th>Age</th>
+        <th>Qualification</th>
+        <th>Experience</th>
+        <th>Current Position</th>
+        <th>Address</th>
+        <th>WhatsApp Number</th>
+        <th>Grade</th>
+        <th>Allot ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.introducerName}"></td>
+        <td th:text="${user.introducerID}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.mobileNumber}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.dob}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.qualification}"></td>
+        <td th:text="${user.experience}"></td>
+        <td th:text="${user.currentPosition}"></td>
+        <td th:text="${user.address}"></td>
+        <td th:text="${user.whatsappNumber}"></td>
+        <td th:text="${user.grade}"></td>
+        <td th:text="${user.allotID}"></td>
+    </tr>
+    </tbody>
+</table>
+</form>
+</body>
+</html>
