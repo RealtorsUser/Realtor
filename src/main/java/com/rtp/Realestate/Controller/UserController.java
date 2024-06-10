@@ -48,7 +48,8 @@ public class UserController {
 
             if (passwordMatch) {
                 System.out.println("Login successful, redirecting to /home");
-                return "redirect:/userlist";
+                model.addAttribute("users", userService.findAllUsers());
+                return "UserList";
             }
         }
 
@@ -60,9 +61,8 @@ public class UserController {
 
     @GetMapping("/userlist")
     public String showUserList(Model model) {
-        List<RealtorUser> users = userService.findAllUsers();
-        model.addAttribute("users", users);
-        return "userlist";
+        model.addAttribute("users", userService.findAllUsers());
+        return "UserList";
     }
 
    /* @GetMapping("/home")
