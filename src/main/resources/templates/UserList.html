@@ -5,7 +5,7 @@
 </head>
 <body>
 <h2>User List</h2>
-<form>th:action="@{/user_list}" method="get" th:object="${realtorUser}">
+<form th:action="@{/user_list}" method="get" th:object="${realtorUser}">
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 <table border="1">
     <thead>
